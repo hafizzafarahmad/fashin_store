@@ -20,6 +20,7 @@ class HomeState extends State<WishListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: const Text(
           'Wishlist',
@@ -68,6 +69,7 @@ class HomeState extends State<WishListPage> {
                                     children: [
                                       Text(
                                         controller.wishList[i].name,
+                                        overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
                                             fontSize: AppSize.width(context, size: 0.028),
                                             color: Colors.black,
@@ -82,18 +84,14 @@ class HomeState extends State<WishListPage> {
                                         ),
                                       ),
                                       const SizedBox(height: 10,),
-                                      Row(
-                                        children: [
-                                          Text(
-                                            '\$${controller.wishList[i].price}',
-                                            style: TextStyle(
-                                                fontSize: AppSize.width(context, size: 0.028),
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold
-                                            ),
-                                          ),
-                                        ],
-                                      )
+                                      Text(
+                                        '\$${controller.wishList[i].price}',
+                                        style: TextStyle(
+                                            fontSize: AppSize.width(context, size: 0.028),
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold
+                                        ),
+                                      ),
                                     ],
                                   )
                                 ],

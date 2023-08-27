@@ -67,7 +67,7 @@ class LoginPageState extends State<LoginPage> {
                           text: "Login",
                           fontSize: 16,
                           onPress: (){
-                            Get.to(const Dashboard());
+                            Get.offAll(const Dashboard());
                           }
                       ),
                     ),

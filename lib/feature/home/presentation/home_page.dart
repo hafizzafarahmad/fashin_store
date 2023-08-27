@@ -13,6 +13,7 @@ import '../../product/presentation/cart_page.dart';
 import '../../product/presentation/new_arrival_page.dart';
 import '../../product/presentation/new_collection_page.dart';
 import '../../product/presentation/product_page.dart';
+import '../../product/presentation/widget/item_product_widget.dart';
 import '../controller/home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -234,86 +235,8 @@ class HomeState extends State<HomePage> {
                       const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2, childAspectRatio: 1.1, crossAxisSpacing: 15),
                       itemCount: controller.listProduct.length,
-                      itemBuilder: (_, index) => InkWell(
-                        onTap: () {
-                          ///Navigate to Product Detail
-                          Get.to(DetailProductPage(data: controller.listProduct[index]));
-                        },
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 10,
-                              child: Stack(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: Image.asset(
-                                      controller.listProduct[index].image?.first ?? '',
-                                      fit: BoxFit.fitWidth,
-                                      width: double.infinity,
-                                    ),
-                                  ),
-                                  Positioned(
-                                    top: 10,
-                                    right: 10,
-                                    child: FaIcon(
-                                      FontAwesomeIcons.heart,
-                                      size: AppSize.width(context, size: 0.045),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              flex: 4,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          controller.listProduct[index].name,
-                                          style: TextStyle(
-                                              fontSize: AppSize.width(context, size: 0.024),
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold
-                                          ),
-                                        ),
-                                        Row(
-                                          children: [
-                                            const Icon(Icons.star, size: 13, color: Colors.orangeAccent,),
-                                            Text(
-                                              '${controller.listProduct[index].rating}',
-                                              style: TextStyle(
-                                                  fontSize: AppSize.width(context, size: 0.023),
-                                                  color: Colors.black,
-                                              ),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                    Text(
-                                      '\$${controller.listProduct[index].price}',
-                                      style: TextStyle(
-                                          fontSize: AppSize.width(context, size: 0.024),
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            )
-
-                          ],
-                        ),
+                      itemBuilder: (_, index) => ItemProductWidget(
+                        data: controller.listProduct[index],
                       ),
                     ),
 

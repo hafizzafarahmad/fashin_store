@@ -12,6 +12,6 @@ class AuthController extends GetxController {
 
 
   void checkUserSession() async {
-    Future.delayed(const Duration(seconds: 3), () => Get.to(const LoginPage()));
+    Future.delayed(const Duration(seconds: 3), () => Get.toNamed(RouteConstant.login));
   }
 }

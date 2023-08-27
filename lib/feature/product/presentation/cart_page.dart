@@ -78,38 +78,41 @@ class HomeState extends State<CartPage> {
                                 ),
                               ),
                               const SizedBox(width: 10,),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    controller.cart[i].name,
-                                    style: TextStyle(
-                                        fontSize: AppSize.width(context, size: 0.028),
-                                        color: Colors.black,
-                                        fontWeight: FontWeight.bold
-                                    ),
-                                  ),
-                                  Text(
-                                    controller.cart[i].size?.first ?? '-',
-                                    style: TextStyle(
-                                        fontSize: AppSize.width(context, size: 0.025),
-                                        color: Colors.black54,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 10,),
-                                  Row(
-                                    children: [
-                                      Text(
-                                        '\$${controller.cart[i].price}',
-                                        style: TextStyle(
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      controller.cart[i].name,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
                                           fontSize: AppSize.width(context, size: 0.028),
                                           color: Colors.black,
                                           fontWeight: FontWeight.bold
-                                        ),
                                       ),
-                                    ],
-                                  )
-                                ],
+                                    ),
+                                    Text(
+                                      controller.cart[i].size?.first ?? '-',
+                                      style: TextStyle(
+                                        fontSize: AppSize.width(context, size: 0.025),
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 10,),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '\$${controller.cart[i].price}',
+                                          style: TextStyle(
+                                              fontSize: AppSize.width(context, size: 0.028),
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               )
                             ],
                           ),
